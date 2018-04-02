@@ -1,0 +1,23 @@
+Command used for dnsinjection is 
+
+sudo ./dnsinject [-i interface] [-f hostname] expression
+
+If command is run with out any options default interface is selected and used for spoofing. 
+
+Sample Output:
+
+sudo ./a.out
+---------------------------------------------------------------------------
+Spoofed 10.0.2.15:ogs.google.com
+Spoofed 10.0.2.15:ogs.google.com
+Spoofed 10.0.2.15:play.google.com
+Spoofed 10.0.2.15:play.google.com
+
+
+--------------------------------------------------------------------------
+Command used for dns detection is
+
+sudo ./dnsdetect [-i interface] [-r file] expression
+
+Destination port is 53 and port is UDP. There is a linked list that maintains all the dns responses. If new packet ID matches with existing one in the list  and dns answer type is A this is conisdered a forged response 
+if it doesnt mathces then it is added to linked list
